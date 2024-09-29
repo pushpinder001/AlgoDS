@@ -1,7 +1,11 @@
 package sorting;
 
 import java.util.Arrays;
-
+/**
+Unstable sorting algo
+Time complexity is O(nLogn) avg case and O(n^2) worst case
+Space Complexity is O(logn) best case and O(n) worst case
+**/
 public class QuickSort {
 
     private static void swap(int[] nums, int i1, int i2) {
