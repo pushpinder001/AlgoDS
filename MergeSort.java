@@ -2,6 +2,11 @@ package sorting;
 
 import java.util.Arrays;
 
+/**
+Stable sorting algo
+Time complexity is O(nLogn) avg case and worst case
+Space Complexity is O(n)
+**/
 public class MergeSort {
 
     private static void merge(int[] nums, int l, int r, int mid) {
