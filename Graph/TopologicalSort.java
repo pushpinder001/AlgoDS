@@ -12,17 +12,17 @@ public class TopologicalSort {
 
     private static List<Integer> getTopologicalSort(List<List<Integer>> adj) {
         int N = adj.size();
-        int[] indegree = new int[N];
+        int[] inDegree = new int[N];
 
         for(int i=0; i<N; i++) {
-            for(var adjNode :  adj.get(i)) {
-                indegree[adjNode]++;
+            for(var adjN :  adj.get(i)) {
+                inDegree[adjN]++;
             }
         }
 
         Queue<Integer> queue = new LinkedList<>();
         for(int i=0; i<N; i++) {
-            if(indegree[i]==0) {
+            if(inDegree[i]==0) {
                 queue.add(i);
             }
         }
@@ -31,10 +31,10 @@ public class TopologicalSort {
         while(!queue.isEmpty()) {
             int top = queue.poll();
             topologicalSort.add(top);
-            for(var adjNode : adj.get(top)) {
-                indegree[adjNode]--;
-                if(indegree[adjNode]==0) {
-                    queue.offer(adjNode);
+            for(var adjN : adj.get(top)) {
+                inDegree[adjN]--;
+                if(inDegree[adjN]==0) {
+                    queue.offer(adjN);
                 }
             }
         }
