@@ -11,27 +11,28 @@ public class Dijkstra {
     private static int[] singleSourceShortestPath(List<List<int[]>> adj, int src) {
         int N = adj.size();
 
-        int[] distArr = new int[N];
-        Arrays.fill(distArr, Integer.MAX_VALUE);
+        int[] dist = new int[N];
+        Arrays.fill(dist, Integer.MAX_VALUE);
 
         PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
         pq.offer(new int[]{src, 0});
-        distArr[0] = 0;
+        dist[0] = 0;
 
         while(!pq.isEmpty()) {
-            int node = pq.peek()[0];
-            int nodeDist = pq.peek()[1];
+            int u = pq.peek()[0];
+            int d = pq.peek()[1];
             pq.poll();
 
-            for(var adjNode : adj.get(node)) {
-                if(nodeDist + adjNode[1] < distArr[adjNode[0]]) {
-                    distArr[adjNode[0]] = nodeDist + adjNode[1];
-                    pq.offer(new int[]{adjNode[0], nodeDist + adjNode[1]});
+            for(var adjNode : adj.get(u)) {
+                int v = adjNode[0], w = adjNode[1];
+                if(d + w < dist[v]) {
+                    dist[v] = d + w;
+                    pq.offer(new int[]{v, dist[v]});
                 }
             }
         }
 
-        return distArr;
+        return dist;
     }
 
     public static void main(String[] args) {
