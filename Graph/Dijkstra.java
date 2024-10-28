@@ -22,6 +22,7 @@ public class Dijkstra {
             int u = pq.peek()[0];
             int d = pq.peek()[1];
             pq.poll();
+            if(dist[u] != d) continue;
 
             for(var adjNode : adj.get(u)) {
                 int v = adjNode[0], w = adjNode[1];
