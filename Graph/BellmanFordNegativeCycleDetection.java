@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BellmanFord {
+public class BellmanFordNegativeCycleDetection {
     static int[] bellmanFord(List<List<int[]>> adj, int src) {
         int V = adj.size();
         int[] dist = new int[V];
