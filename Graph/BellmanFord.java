@@ -1,3 +1,6 @@
+/**
+https://www.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1
+**/
 class Solution {
     static int[] bellmanFord(int V, ArrayList<ArrayList<Integer>> edges, int src) {
        int MAX_VALUE = 100_000_000;
